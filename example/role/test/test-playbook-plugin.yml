@@ -1,0 +1,40 @@
+---
+# From root folder run: ./testme.sh.
+
+- name: Example plugin.
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+  - name: Test variable_boolean.
+    debug:
+      msg:
+        - '------------------------------------------------------------------'
+        - 'Testing variable_boolean ...'
+        - '------------------------------------------------------------------'
+
+  - name: Test variable_boolean with true.
+    debug:
+      msg: 'Variable is boolean'
+    failed_when: true is not variable_boolean
+
+  - name: Test variable_boolean with false.
+    debug:
+      msg: 'Variable is boolean'
+    failed_when: false is not variable_boolean
+
+  - name: Test variable_boolean with True.
+    debug:
+      msg: 'Variable is boolean'
+    failed_when: True is not variable_boolean
+
+  - name: Test variable_boolean with False.
+    debug:
+      msg: 'Variable is boolean'
+    failed_when: False is not variable_boolean
+
+  - name: Test variable_boolean with 777.
+    debug:
+      msg: 'Variable is not boolean'
+    failed_when: 777 is variable_boolean

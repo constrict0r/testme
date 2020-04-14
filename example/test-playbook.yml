@@ -1,0 +1,12 @@
+---
+# From root folder run: ./testme.sh.
+
+- name: Test playbook.
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+  - name: Say hello
+    debug:
+      msg: 'hello'

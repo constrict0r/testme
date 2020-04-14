@@ -1,0 +1,18 @@
+@startuml
+'Use plantuml to view this file as an image: http://plantuml.com'
+
+skinparam monochrome reverse
+
+start
+
+if (bats test exists?) then (yes)
+
+  :Setup bats;
+  :Run bats tests;
+
+else (no)
+endif
+
+end
+
+@enduml

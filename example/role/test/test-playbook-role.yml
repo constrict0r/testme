@@ -1,0 +1,12 @@
+---
+# From root folder run: ./testme.sh.
+
+- name: Example role tests.
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+  - name: Import the role.
+    import_role:
+      name: constrict0r.role

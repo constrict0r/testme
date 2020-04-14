@@ -1,0 +1,16 @@
+@startuml
+'Use plantuml to view this file as an image: http://plantuml.com'
+
+skinparam monochrome reverse
+
+start
+
+:Run ansible tests;
+:Run bats tests;
+:Run pytest tests;
+:Run tox tests;
+:Run poetry tests;
+
+end
+
+@enduml

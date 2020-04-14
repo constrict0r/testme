@@ -1,0 +1,20 @@
+@startuml
+'Use plantuml to view this file as an image: http://plantuml.com'
+
+skinparam monochrome reverse
+
+start
+
+:Setup ansible modules;
+:Setup ansible plugins;
+
+if (project is role) then(yes)
+
+  :Copy to /home/username/.ansible/roles;
+
+else (no)
+endif
+
+end
+
+@enduml

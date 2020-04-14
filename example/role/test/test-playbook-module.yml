@@ -1,0 +1,48 @@
+---
+# From root folder run: ./testme.sh.
+
+- name: Example module tests.
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+  - name: Test example module.
+    debug:
+      msg:
+        - '------------------------------------------------------------------'
+        - 'Testing example module ...'
+        - '------------------------------------------------------------------'
+
+  - name: Test example module with NON-empty.
+    debug:
+      msg:
+        - '__________________________________________________________________'
+        - 'Testing unify module with NON-empty ...'
+        - '        __....._'
+        - '     .`` _  o    ``'
+        - '   ." O (_)     () o`'
+        - '  .           O        '
+        - ' . ()   o__...__    O   '
+        - '. _.--```       ```--._ '
+        - ':`                     `'
+        - ' `-.__    :    :   __.-`'
+        - '      ```-:    :-```'
+        - '         J     '
+        - '         :     '
+        - '        J       '
+        - '        :       '
+        - '        `._____.'
+        - '__________________________________________________________________'
+
+  - name: Join two items.
+    example:
+      items: ['one', 'two']
+    register: result_register
+    failed_when:
+      - result_register.single is not defined
+      - result_register.single | length < 1
+
+  - name: Show result.
+    debug:
+      var: result_register

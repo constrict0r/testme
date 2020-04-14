@@ -1,0 +1,19 @@
+@startuml
+'Use plantuml to view this file as an image: http://plantuml.com'
+
+skinparam monochrome reverse
+
+start
+
+if (ansible tests exists?) then (yes)
+
+  :Setup ansible tests;
+
+  :Run ansible tests;
+
+else (no)
+endif
+
+end
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml
+'Use plantuml to view this file as an image: http://plantuml.com'
+
+skinparam monochrome reverse
+
+start
+
+if (yml files on /test?) then (yes)
+
+  :Test exists;
+  end
+
+else (no)
+endif
+
+if (yaml files on /test?) then (yes)
+
+  :Test exists;
+  end
+
+else (no)
+endif
+
+if (/library or /test_plugins exists?) then (yes)
+
+  if (py files exists on /test?) then (yes)
+
+    :Test exists;
+    end
+
+  else (no)
+  endif
+
+else (no)
+endif
+
+:Test not exists;
+end
+
+@enduml

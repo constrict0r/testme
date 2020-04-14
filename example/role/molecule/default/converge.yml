@@ -1,0 +1,32 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+  pre_tasks:
+    - name: Ensure Python APT requirements installed.
+      apt:
+        name:
+          - python3
+          - python3-pip
+          - python3-setuptools
+        state: latest
+
+    - name: Ensure Python PIP requirements installed.
+      pip:
+        executable: pip3
+        name:
+          - flake8
+        state: latest
+
+  roles:
+    - role: role
+
+  post_tasks:
+    - name: Get flake8 version.
+      command: flake8 --version
+      register: lint_version
+      failed_when: '"pyflakes" not in lint_version.stdout'
+      changed_when: false
